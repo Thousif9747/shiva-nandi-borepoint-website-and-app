@@ -57,22 +57,20 @@ export default function ServiceCard({ service, index = 0, onEnquire }) {
 
       {/* price - tap opens the rate card when the service has one */}
       <div className="mt-3">
-        {service.price ? (
-          hasRateCard ? (
-            <button
-              type="button"
-              onClick={() => setRateOpen(true)}
-              aria-haspopup="dialog"
-              className="inline-flex items-center gap-1.5 rounded-full bg-teal-700/10 px-3 py-1 text-[13px] font-bold text-teal-800 transition-colors hover:bg-teal-700/20"
-            >
-              {priceLabel}
-              <ChevronDown size={13} />
-            </button>
-          ) : (
-            <span className="inline-flex items-center rounded-full bg-teal-700/10 px-3 py-1 text-[13px] font-bold text-teal-800">
-              {priceLabel}
-            </span>
-          )
+        {hasRateCard ? (
+          <button
+            type="button"
+            onClick={() => setRateOpen(true)}
+            aria-haspopup="dialog"
+            className="inline-flex items-center gap-1.5 rounded-full bg-teal-700/10 px-3 py-1 text-[13px] font-bold text-teal-800 transition-colors hover:bg-teal-700/20"
+          >
+            {service.price ? priceLabel : t('actions.callForPrice')}
+            <ChevronDown size={13} />
+          </button>
+        ) : service.price ? (
+          <span className="inline-flex items-center rounded-full bg-teal-700/10 px-3 py-1 text-[13px] font-bold text-teal-800">
+            {priceLabel}
+          </span>
         ) : (
           <span className="inline-flex items-center rounded-full bg-cream-200/70 px-3 py-1 text-[13px] font-bold text-earth-600">
             {t('actions.callForPrice')}

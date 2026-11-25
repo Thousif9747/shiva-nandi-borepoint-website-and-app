@@ -3,15 +3,39 @@ import { ChevronLeft, ChevronRight, ImageOff, X } from 'lucide-react'
 import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 import { useLanguage } from '../context/LanguageContext'
-import { siteConfig } from '../data/siteConfig'
 import { lockBodyScroll } from '../utils/browser'
 
-export default function Gallery() {
+export default function Gallery({ items }) {
   const { t, tr } = useLanguage()
   const s = t('sections.gallery')
-  const items = siteConfig.gallery
   const [active, setActive] = useState(null) // index or null
   const closeRef = useRef(null)
+  const activeItem = items[active]
+  const isOpen = Boolean(activeItem)
+
+  const show = (i) => setActive(i)
+  const hide = () => setActive(null)
+  const step = useCallback(
+    (dir) =>
+      setActive((cur) => (cur == null ? cur : (cur + dir + items.length) % items.length)),
+    [items.length],
+  )
+
+  useEffect(() => {
+    if (!isOpen) return undefined
+    lockBodyScroll(true)
+    const onKey = (e) => {
+      if (e.key === 'Escape') hide()
+      if (e.key === 'ArrowRight') step(1)
+      if (e.key === 'ArrowLeft') step(-1)
+    }
+    document.addEventListener('keydown', onKey)
+    closeRef.current?.focus()
+    return () => {
+      lockBodyScroll(false)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [isOpen, step])
 
   // empty state when the owner has not added photos yet
   if (!items.length) {
@@ -30,32 +54,6 @@ export default function Gallery() {
       </section>
     )
   }
-
-  const show = (i) => setActive(i)
-  const hide = () => setActive(null)
-  const step = useCallback(
-    (dir) =>
-      setActive((cur) => (cur == null ? cur : (cur + dir + items.length) % items.length)),
-    [items.length],
-  )
-
-  // keyboard support for the lightbox
-  useEffect(() => {
-    if (active == null) return undefined
-    lockBodyScroll(true)
-    const onKey = (e) => {
-      if (e.key === 'Escape') hide()
-      if (e.key === 'ArrowRight') step(1)
-      if (e.key === 'ArrowLeft') step(-1)
-    }
-    document.addEventListener('keydown', onKey)
-    closeRef.current?.focus()
-    return () => {
-      lockBodyScroll(false)
-      document.removeEventListener('keydown', onKey)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active == null, step])
 
   return (
     <section id="gallery" className="section bg-white">
@@ -99,7 +97,7 @@ export default function Gallery() {
       </div>
 
       {/* lightbox */}
-      {active != null && (
+      {isOpen && (
         <div
           role="dialog"
           aria-modal="true"
@@ -109,12 +107,12 @@ export default function Gallery() {
         >
           <div className="relative max-h-full w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
             <img
-              src={items[active].src}
-              alt={tr(items[active].alt)}
+              src={activeItem.src}
+              alt={tr(activeItem.alt)}
               className="mx-auto max-h-[76vh] w-auto max-w-full rounded-2xl"
             />
             <p className="mt-3 text-center text-sm font-medium text-cream-200">
-              {tr(items[active].alt)}
+              {tr(activeItem.alt)}
             </p>
 
             <button

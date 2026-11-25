@@ -3,24 +3,18 @@ import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 import { useLanguage } from '../context/LanguageContext'
 import { siteConfig } from '../data/siteConfig'
-
-/** Pull the shortcode from an Instagram reel/post link. */
-function embedInfo(url) {
-  const m = String(url || '').match(/instagram\.com\/(reel|p|tv)\/([A-Za-z0-9_-]+)/)
-  return m ? { type: m[1], code: m[2] } : null
-}
+import { instagramPost } from '../data/publishedContent'
 
 /**
  * Instagram video section: each reel plays inline (official Instagram
  * embed, no login needed - tap the play button inside the video).
- * Videos come from siteConfig.instagramReels - owner edits there.
  */
-export default function InstagramReels() {
+export default function InstagramReels({ items }) {
   const { t, tr } = useLanguage()
   const s = t('sections.reels')
 
-  const reels = (siteConfig.instagramReels || [])
-    .map((r) => ({ ...r, embed: embedInfo(r.url) }))
+  const reels = items
+    .map((r) => ({ ...r, embed: instagramPost(r.url) }))
     .filter((r) => r.embed && r.url)
 
   return (
