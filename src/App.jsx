@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { defaultContent, readPublishedContent, supabase } from './data/publishedContent'
+import { useState } from 'react'
 import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -19,18 +18,6 @@ import MobileBottomNav from './components/MobileBottomNav'
 import Seo from './components/Seo'
 
 export default function App() {
-  const [content, setContent] = useState(defaultContent)
-  useEffect(() => {
-    if (!supabase) return undefined
-    const controller = new AbortController()
-    readPublishedContent(controller.signal)
-      .then((published) => setContent(published.content))
-      .catch((error) => {
-        if (!controller.signal.aborted) console.error('Could not load published BorePoint content', error)
-      })
-    return () => controller.abort()
-  }, [])
-
   // prefill = { serviceId, nonce } - bumping nonce re-selects a service
   const [prefill, setPrefill] = useState({ serviceId: '', nonce: 0 })
 
@@ -52,13 +39,13 @@ export default function App() {
 
       <main id="main">
         <Hero onBook={() => enquire('usa-technology')} />
-        <ServicesGrid onEnquire={enquire} prices={content.prices} />
+        <ServicesGrid onEnquire={enquire} />
         <Methods />
         <Steps />
         <Highlights onEnquire={enquire} />
         <WhyUs />
-        <Gallery items={content.gallery} />
-        <InstagramReels items={content.reels} />
+        <Gallery />
+        <InstagramReels />
         <Testimonials />
         <FAQ />
         <Contact prefill={prefill} />

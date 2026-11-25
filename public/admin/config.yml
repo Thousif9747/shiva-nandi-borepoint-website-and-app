@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: Thousif9747/shiva-nandi-borepoint-website-and-app
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+site_url: https://shivanandiborewell.netlify.app
+display_url: https://shivanandiborewell.netlify.app
+publish_mode: simple
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: site_content
+    label: Website content
+    editor:
+      preview: false
+    files:
+      - name: gallery
+        label: Site photos
+        file: src/data/gallery.json
+        fields:
+          - name: gallery
+            label: Gallery photos
+            label_singular: Photo
+            widget: list
+            required: false
+            summary: '{{fields.alt.en}}'
+            fields:
+              - { name: src, label: Image, widget: image, choose_url: false }
+              - name: alt
+                label: Image description
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: string }
+                  - { name: kn, label: Kannada, widget: string, required: false }
+              - { name: placeholder, label: Mark as sample photo, widget: boolean, required: false, default: false }
+
+      - name: service_prices
+        label: Service prices
+        file: src/data/servicePrices.json
+        fields:
+          - name: prices
+            label: Prices shown on service cards
+            widget: object
+            hint: 'Enter a price without the rupee symbol, such as 900 or 90 / ft. Leave blank to show Call for price.'
+            fields:
+              - { name: usa-technology, label: USA Technology Borewell Point Identification, widget: string, required: false }
+              - { name: l-rod-identification, label: L-Rod Point Identification, widget: string, required: false }
+              - { name: coconut-method, label: Coconut Traditional Method Point Identification, widget: string, required: false }
+              - { name: consultation, label: Borewell Point Trading / Consultation, widget: string, required: false }
+              - { name: machinery-identification, label: Machinery Point Identification, widget: string, required: false }
+              - { name: borewell-camera-scanning, label: Borewell Camera Scanning, widget: string, required: false }
+              - { name: borewell-recharge, label: Borewell Recharge, widget: string, required: false }
+              - { name: borewell-repair, label: Borewell Repair, widget: string, required: false }
+              - { name: lorry-drilling, label: Borewell Lorry Drilling, widget: string, required: false }
+              - { name: robotic-drilling, label: Robotic Drilling, widget: string, required: false }
+
+      - name: instagram_videos
+        label: Instagram videos
+        file: src/data/instagramReels.json
+        fields:
+          - name: reels
+            label: Instagram videos
+            label_singular: Video
+            widget: list
+            required: false
+            summary: '{{fields.title.en}}'
+            fields:
+              - name: url
+                label: Public Instagram link
+                widget: string
+                pattern: ['^https://(www\.)?instagram\.com/(reel|p|tv)/[A-Za-z0-9_-]+/?([?#].*)?$', 'Enter a public Instagram reel or post link.']
+              - name: title
+                label: Video title
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: string }
+                  - { name: kn, label: Kannada, widget: string, required: false }

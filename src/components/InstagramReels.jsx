@@ -3,19 +3,30 @@ import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 import { useLanguage } from '../context/LanguageContext'
 import { siteConfig } from '../data/siteConfig'
-import { instagramPost } from '../data/publishedContent'
+import reelData from '../data/instagramReels.json'
+
+function instagramPost(value) {
+  try {
+    const url = new URL(value)
+    if (url.protocol !== 'https:' || !['instagram.com', 'www.instagram.com'].includes(url.host)) return null
+    const match = url.pathname.match(/^\/(reel|p|tv)\/([A-Za-z0-9_-]+)\/?$/)
+    return match ? { type: match[1], code: match[2] } : null
+  } catch {
+    return null
+  }
+}
+
+const reels = (reelData.reels ?? [])
+  .map((reel) => ({ ...reel, embed: instagramPost(reel.url) }))
+  .filter((reel) => reel.embed)
 
 /**
  * Instagram video section: each reel plays inline (official Instagram
  * embed, no login needed - tap the play button inside the video).
  */
-export default function InstagramReels({ items }) {
+export default function InstagramReels() {
   const { t, tr } = useLanguage()
   const s = t('sections.reels')
-
-  const reels = items
-    .map((r) => ({ ...r, embed: instagramPost(r.url) }))
-    .filter((r) => r.embed && r.url)
 
   return (
     <section id="reels" className="section bg-cream-100">
@@ -26,7 +37,7 @@ export default function InstagramReels({ items }) {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {reels.map((reel, i) => (
               <Reveal
-                key={reel.id}
+                key={`${reel.embed.code}-${i}`}
                 delay={(i % 3) * 70}
                 as="article"
                 className="card overflow-hidden p-0"

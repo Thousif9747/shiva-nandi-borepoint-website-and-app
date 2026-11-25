@@ -4,8 +4,11 @@ import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 import { useLanguage } from '../context/LanguageContext'
 import { lockBodyScroll } from '../utils/browser'
+import galleryData from '../data/gallery.json'
 
-export default function Gallery({ items }) {
+const items = galleryData.gallery ?? []
+
+export default function Gallery() {
   const { t, tr } = useLanguage()
   const s = t('sections.gallery')
   const [active, setActive] = useState(null) // index or null
@@ -18,7 +21,7 @@ export default function Gallery({ items }) {
   const step = useCallback(
     (dir) =>
       setActive((cur) => (cur == null ? cur : (cur + dir + items.length) % items.length)),
-    [items.length],
+    [],
   )
 
   useEffect(() => {
@@ -68,7 +71,7 @@ export default function Gallery({ items }) {
           }
         >
           {items.map((item, i) => (
-            <Reveal key={item.id} delay={(i % 3) * 70} as="figure" className="group relative m-0">
+            <Reveal key={`${item.src}-${i}`} delay={(i % 3) * 70} as="figure" className="group relative m-0">
               <button
                 type="button"
                 onClick={() => show(i)}

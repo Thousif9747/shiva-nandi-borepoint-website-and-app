@@ -284,52 +284,6 @@ export const siteConfig = {
     },
   ],
 
-  // --- GALLERY (placeholder images; owner replaces with real work photos) ---
-  gallery: [
-    { id: 'g1', src: '/images/work-1.svg', alt: { en: 'Sample photo - point identification work', kn: 'ಮಾದರಿ ಫೋಟೋ - ಪಾಯಿಂಟ್ ಗುರುತಿಸುವಿಕೆ' }, placeholder: true },
-    { id: 'g2', src: '/images/work-2.svg', alt: { en: 'Sample photo - lorry drilling rig', kn: 'ಮಾದರಿ ಫೋಟೋ - ಲಾರಿ ಡ್ರಿಲಿಂಗ್' }, placeholder: true },
-    { id: 'g3', src: '/images/work-3.svg', alt: { en: 'Sample photo - camera scanning', kn: 'ಮಾದರಿ ಫೋಟೋ - ಕ್ಯಾಮರಾ ಸ್ಕ್ಯಾನಿಂಗ್' }, placeholder: true },
-    { id: 'g4', src: '/images/work-4.svg', alt: { en: 'Sample photo - borewell recharge pit', kn: 'ಮಾದರಿ ಫೋಟೋ - ರೀಚಾರ್ಜ್ ಪಿಟ್' }, placeholder: true },
-    { id: 'g5', src: '/images/work-5.svg', alt: { en: 'Sample photo - borewell repair', kn: 'ಮಾದರಿ ಫೋಟೋ - ಬೋರವೆಲ್ ದುರಸ್ತಿ' }, placeholder: true },
-    { id: 'g6', src: '/images/work-6.svg', alt: { en: 'Sample photo - finished borewell at a site', kn: 'ಮಾದರಿ ಫೋಟೋ - ಸ್ಥಳದಲ್ಲಿ ಮುಗಿದ ಬೋರವೆಲ್' }, placeholder: true },
-  ],
-
-  // --- Instagram REELS that play on the website ---
-  // Owner: paste the link of any reel (https://www.instagram.com/reel/XXXXXXX/)
-  // and it will play inline on the site. Remove a line to remove that video.
-  instagramReels: [
-    {
-      id: 'ig1',
-      url: 'https://www.instagram.com/reel/DdJdb1Lz0ur/',
-      title: { en: 'Borewell point work reel', kn: 'ಬೋರವೆಲ್ ಪಾಯಿಂಟ್ ಕೆಲಸದ ರೀಲ್' },
-    },
-    {
-      id: 'ig2',
-      url: 'https://www.instagram.com/reel/DdoYzN0ux_S/',
-      title: { en: 'Point identification reel', kn: 'ಪಾಯಿಂಟ್ ಗುರುತಿಸುವಿಕೆ ರೀಲ್' },
-    },
-    {
-      id: 'ig3',
-      url: 'https://www.instagram.com/reel/DbPn2Wih7RU/',
-      title: { en: 'Site work reel', kn: 'ಸ್ಥಳದ ಕೆಲಸದ ರೀಲ್' },
-    },
-    {
-      id: 'ig4',
-      url: 'https://www.instagram.com/reel/DYccuXFtout/',
-      title: { en: 'Drilling machinery reel', kn: 'ಡ್ರಿಲ್ಲಿಂಗ್ ಯಂತ್ರದ ರೀಲ್' },
-    },
-    {
-      id: 'ig5',
-      url: 'https://www.instagram.com/reel/Db5PDjFm25I/',
-      title: { en: 'Bengaluru site reel', kn: 'ಬೆಂಗಳೂರು ಸ್ಥಳದ ರೀಲ್' },
-    },
-    {
-      id: 'ig6',
-      url: 'https://www.instagram.com/reel/DbLSJcEBLkk/',
-      title: { en: 'Our work reel', kn: 'ನಮ್ಮ ಕೆಲಸದ ರೀಲ್' },
-    },
-  ],
-
   // --- Future use (not visible on page) ---
   installedApp: 'shivanandi-borewell-point',
 }

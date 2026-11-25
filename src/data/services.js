@@ -1,7 +1,7 @@
 // ============================================================
-// SERVICES - the owner edits THIS file to add, remove or price
+// SERVICES - service definitions and the detailed drilling rate card.
 // a service. Names/descriptions keep both languages side by side.
-// Leave price as '' to show "Call for price".
+// Service card prices are edited through /admin/ in servicePrices.json.
 // ============================================================
 
 export const services = [

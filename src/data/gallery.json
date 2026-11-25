@@ -1,0 +1,52 @@
+{
+  "gallery": [
+    {
+      "src": "/images/work-1.svg",
+      "alt": {
+        "en": "Sample photo - point identification work",
+        "kn": "ಮಾದರಿ ಫೋಟೋ - ಪಾಯಿಂಟ್ ಗುರುತಿಸುವಿಕೆ"
+      },
+      "placeholder": true
+    },
+    {
+      "src": "/images/work-2.svg",
+      "alt": {
+        "en": "Sample photo - lorry drilling rig",
+        "kn": "ಮಾದರಿ ಫೋಟೋ - ಲಾರಿ ಡ್ರಿಲಿಂಗ್"
+      },
+      "placeholder": true
+    },
+    {
+      "src": "/images/work-3.svg",
+      "alt": {
+        "en": "Sample photo - camera scanning",
+        "kn": "ಮಾದರಿ ಫೋಟೋ - ಕ್ಯಾಮರಾ ಸ್ಕ್ಯಾನಿಂಗ್"
+      },
+      "placeholder": true
+    },
+    {
+      "src": "/images/work-4.svg",
+      "alt": {
+        "en": "Sample photo - borewell recharge pit",
+        "kn": "ಮಾದರಿ ಫೋಟೋ - ರೀಚಾರ್ಜ್ ಪಿಟ್"
+      },
+      "placeholder": true
+    },
+    {
+      "src": "/images/work-5.svg",
+      "alt": {
+        "en": "Sample photo - borewell repair",
+        "kn": "ಮಾದರಿ ಫೋಟೋ - ಬೋರವೆಲ್ ದುರಸ್ತಿ"
+      },
+      "placeholder": true
+    },
+    {
+      "src": "/images/work-6.svg",
+      "alt": {
+        "en": "Sample photo - finished borewell at a site",
+        "kn": "ಮಾದರಿ ಫೋಟೋ - ಸ್ಥಳದಲ್ಲಿ ಮುಗಿದ ಬೋರವೆಲ್"
+      },
+      "placeholder": true
+    }
+  ]
+}

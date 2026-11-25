@@ -1,5 +1,5 @@
 /* Shivanandi Borewell Point - simple offline-first service worker */
-const CACHE = 'shivanandi-v2'
+const CACHE = 'shivanandi-v3'
 const CORE = ['/', '/index.html', '/manifest.json', '/favicon.svg']
 
 self.addEventListener('install', (event) => {
@@ -22,7 +22,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return
 
   const url = new URL(request.url)
-  if (/^\/admin\/?$/.test(url.pathname)) return
+  if (/^\/admin(?:\/|$)/.test(url.pathname)) return
 
   // never cache cross-origin calls (fonts CDN is fine to cache, wa.me is not)
   if (url.origin !== self.location.origin && !url.hostname.includes('fonts')) return

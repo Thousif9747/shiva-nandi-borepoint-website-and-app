@@ -2,22 +2,12 @@
 
 ## BorePoint admin setup
 
-The admin panel is at `/admin/`. It uses Supabase for email and password sign-in, stored photos, and published content. The public site remains a static Vite site on Netlify.
+Open `/admin/` on the Netlify site to edit site photos, service card prices, and Instagram videos in Decap CMS. Editors sign in with their own GitHub accounts. Publishing commits the edited content to `main`, then Netlify builds and deploys the updated public site.
 
-1. Create a Supabase project with its Data API enabled. In its SQL Editor, run `supabase/setup.sql` from this repository.
-2. In Authentication, disable public signups and create a confirmed user with the owner's email and a strong password. Copy that user's UUID. Keep the password in your password manager.
-3. In the SQL Editor, grant that user publishing access. Replace the example UUID with the one from Authentication.
-
-   ```sql
-   insert into public.borepoint_admins (user_id)
-   values ('00000000-0000-0000-0000-000000000000')
-   on conflict do nothing;
-   ```
-
-4. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` to the existing Netlify project's environment variables for production builds. Use the Supabase Project URL and the publishable key from the project's Connect dialog. For local development, put the same values in `.env.local`. A secret or service-role key must never be used as a `VITE_` variable.
-5. Deploy from `main`, then open `/admin/` on the live site and sign in. Make a change, click **Publish changes**, and refresh the public site in a private browser window to confirm it appears. Subsequent content updates take effect on the next page load without a Netlify rebuild.
-
-Removing a photo from the gallery removes it from the public page after publishing. The original file remains in Supabase Storage. Only upload images intended for public viewing.
+1. In [GitHub OAuth Apps](https://github.com/settings/developers), register a BorePoint OAuth app. Set the homepage to the live BorePoint URL and the authorization callback to `https://api.netlify.com/auth/done`. Generate a client secret.
+2. In the Netlify project serving the BorePoint domain, go to **Project configuration → Security → OAuth → Authentication providers**. Install GitHub and enter that app's Client ID and Client Secret there. [Netlify OAuth setup](https://docs.netlify.com/manage/security/secure-access-to-sites/oauth-provider-tokens/)
+3. In the [BorePoint repository settings](https://github.com/Thousif9747/shiva-nandi-borepoint-website-and-app/settings/access), invite each editor as a GitHub collaborator with write access. They must accept the invitation before signing in. The repository must allow their commits to `main` for one-click publishing. [Decap GitHub backend](https://decapcms.org/docs/github-backend/)
+4. Open the live `/admin/` page, choose **Login with GitHub**, then open **Website content**. Publish a change and check the Netlify Deploys page for the successful production deployment before refreshing the public site.
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
