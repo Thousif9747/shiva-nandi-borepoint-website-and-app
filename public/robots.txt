@@ -1,0 +1,5 @@
+# robots.txt - Shivanandi Borewell Point
+User-agent: *
+Allow: /
+
+Sitemap: https://shivanandiborewellpoint.in/sitemap.xml

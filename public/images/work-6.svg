@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F7F8"/><stop offset="1" stop-color="#DCEAED"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="470" rx="320" ry="70" fill="#A97449" opacity=".2"/>
+  <g>
+    <rect x="250" y="250" width="280" height="170" rx="6" fill="#FBF9F4" stroke="#8A5A35" stroke-width="6"/>
+    <path d="M230 260 390 150 550 260Z" fill="#B07D4F"/>
+    <rect x="360" y="340" width="60" height="80" rx="4" fill="#0A4356"/>
+    <rect x="280" y="290" width="56" height="46" rx="6" fill="#7FD8CF" opacity=".7"/>
+    <line x1="530" y1="420" x2="530" y2="500" stroke="#0A4356" stroke-width="10"/>
+    <path d="M510 430c0 12-7 21-20 21s-20-9-20-21c0-10 9-20 20-28 11 8 20 18 20 28Z" fill="#17A89B"/>
+  </g>
+  <rect x="24" y="540" width="250" height="34" rx="17" fill="#052633"/>
+  <text x="149" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#7FD8CF">REPLACE WITH YOUR PHOTO</text>
+</svg>

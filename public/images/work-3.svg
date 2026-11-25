@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#052633"/><stop offset="1" stop-color="#0A4356"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="340" y="60" width="120" height="480" rx="14" fill="#083546"/>
+  <rect x="368" y="60" width="64" height="480" fill="#17A89B" opacity=".35"/>
+  <g fill="none" stroke="#7FD8CF" stroke-width="3" opacity=".5">
+    <line x1="368" y1="150" x2="432" y2="150"/><line x1="368" y1="260" x2="432" y2="260"/>
+    <line x1="368" y1="380" x2="432" y2="380"/><line x1="368" y1="480" x2="432" y2="480"/>
+  </g>
+  <g>
+    <line x1="400" y1="170" x2="400" y2="270" stroke="#7FD8CF" stroke-width="3" stroke-dasharray="5 6"/>
+    <circle cx="400" cy="285" r="26" fill="#7FD8CF"/>
+    <circle cx="400" cy="285" r="12" fill="#052633"/><circle cx="395" cy="280" r="4" fill="#fff"/>
+    <circle cx="400" cy="350" r="20" fill="none" stroke="#17A89B" stroke-width="4" opacity=".7"/>
+  </g>
+  <rect x="24" y="540" width="250" height="34" rx="17" fill="#7FD8CF"/>
+  <text x="149" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#052633">REPLACE WITH YOUR PHOTO</text>
+</svg>

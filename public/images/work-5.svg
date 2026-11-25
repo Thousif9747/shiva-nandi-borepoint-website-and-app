@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F7F8"/><stop offset="1" stop-color="#DCEAED"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="470" rx="300" ry="70" fill="#E3CFB2"/>
+  <rect x="300" y="200" width="140" height="230" rx="12" fill="#0A4356"/>
+  <rect x="324" y="200" width="92" height="230" fill="#7FD8CF" opacity=".4"/>
+  <g transform="rotate(-35 520 260)">
+    <rect x="480" y="240" width="110" height="34" rx="10" fill="#A97449"/>
+    <rect x="560" y="248" width="42" height="18" rx="7" fill="#8A5A35"/>
+    <circle cx="500" cy="257" r="20" fill="#8A5A35"/>
+  </g>
+  <g stroke="#0E8A86" stroke-width="5" fill="none" stroke-linecap="round" opacity=".55">
+    <path d="M180 420c22-9 44-9 66 0s44 9 66 0"/>
+    <path d="M470 500c22-9 44-9 66 0s44 9 66 0"/>
+  </g>
+  <rect x="24" y="540" width="250" height="34" rx="17" fill="#052633"/>
+  <text x="149" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#7FD8CF">REPLACE WITH YOUR PHOTO</text>
+</svg>
